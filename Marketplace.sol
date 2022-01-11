@@ -543,7 +543,7 @@ contract Marketplace is IERC721Receiver, Ownable {
         return _collectedFees;
     }
     
-  
+  // List nft 
     function openTrade(uint nftTokenId, uint price) external {
         
         require(nftContract.ownerOf(nftTokenId) == msg.sender, "Sender has to be owner of the token.");
@@ -566,7 +566,7 @@ contract Marketplace is IERC721Receiver, Ownable {
         emit TradeOpened(id,msg.sender);
     }
 
-    
+    // buy nft
     function executeTrade(uint tradeId) external {
        
         Trade memory trade = trades[tradeId];
@@ -601,7 +601,7 @@ contract Marketplace is IERC721Receiver, Ownable {
         emit TradeEnded(tradeId,msg.sender);
     }
 
-
+    // change listing price
      function renewTrade(uint tradeId, uint _newprice) external {
        
         Trade memory trade = trades[tradeId];
